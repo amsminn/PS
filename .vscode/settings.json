@@ -1,7 +1,8 @@
 {
     "terminal.integrated.shellArgs.windows": [
         "-NoExit",
-        "/K", "chcp 65001"
+        "/K", 
+        "chcp 65001"
     ],
     "files.associations": {
         "sstream": "cpp",
