@@ -6,8 +6,8 @@ vector<int> arr, srt; //원본 수열 arr, 정렬한 수열 srt
 
 int main() {
 	scanf("%d%d", &n, &k);
-	for (int i = 1,a; i <= n; i++) { //arr과 srt 입력
-		scanf("%1d", &a); 
+	for (int i = 1,a; i <= n; i++) { //arr 입력 후 정렬된 배열을 만들기 위해
+		scanf("%1d", &a);  			 //srt 배열에 같은 값 대입
 		arr.push_back(a);
 		srt.push_back(a);
 	}
