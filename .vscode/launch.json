@@ -7,7 +7,7 @@
     "configurations": [
       {
         "name": "(gdb) Launch",
-        "type": "cppdbg",
+        "type": "cppdbg",    
         "request": "launch",
         "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
         "args": [],

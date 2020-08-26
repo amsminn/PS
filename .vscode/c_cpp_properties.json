@@ -4,8 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**"
-            ],
-            "defines": [
+            ],  
+            "defines": [   
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"

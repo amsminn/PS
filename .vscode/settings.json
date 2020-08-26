@@ -6,8 +6,8 @@
     ],
     "files.associations": {
         "sstream": "cpp",
-        "regex": "cpp",
-        "iostream": "cpp",
+        "regex": "cpp",  
+        "iostream": "cpp",  
         "cmath": "cpp",
         "iosfwd": "cpp",
         "valarray": "cpp",
