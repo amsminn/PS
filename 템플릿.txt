@@ -8,6 +8,7 @@
 #define pb push_back
 #define all(v) v.begin(),v.end()
 #define sz(v) (int)v.size()
+#define endl '\n'
 using namespace std;
 using ll = long long;
 using pi = pair<int, int>;
