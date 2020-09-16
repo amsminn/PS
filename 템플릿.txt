@@ -11,6 +11,7 @@
 #define endl '\n'
 using namespace std;
 using ll = long long;
+using ull = unsigned long long;
 using pi = pair<int, int>;
 const int di[] = { -1, 0, 0, 1 }, dj[] = { 0, -1, 1, 0 };
 
