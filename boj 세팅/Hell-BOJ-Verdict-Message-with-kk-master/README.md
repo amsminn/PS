@@ -1,9 +1,4 @@
-# Justice Hui github에서 받아왔습니다
-
-# Hell-BOJ-Verdict-Message
-응 아니야 - 백준 채점 결과 메시지를 바꿔줍니다.
-
-
+# 개인 사용 목적으로 Justice Hui github에서 자료를 가져왔습니다
 
 ### Preview
 
