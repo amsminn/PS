@@ -1,4 +1,4 @@
-#Justice Hui github에서 받아왔습니다
+# Justice Hui github에서 받아왔습니다
 
 # Hell-BOJ-Verdict-Message
 응 아니야 - 백준 채점 결과 메시지를 바꿔줍니다.
