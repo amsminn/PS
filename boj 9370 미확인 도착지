@@ -7,19 +7,19 @@ bool operator <(P a, P b){ return a.w > b.w;}
 int T;
 int n,m,t;
 int s, g, h;
-int sdist[2020], gdist[2020], hdist[2020];
+vector<int> sdist, gdist, hdist;
 vector<P> v[2020];
 vector<int> lst;
 
 void init(){
 	for(int i = 0; i<2019; i++) v[i].clear();
 	lst.clear();
-	fill(sdist, sdist + 2010, 1e9);
-	fill(gdist, sdist + 2010, 1e9);
-	fill(hdist, sdist + 2010, 1e9);
+	sdist.resize(n+5);
+	gdist.resize(n+5);
+	hdist.resize(n+5);
 }
 
-void djkstra(int dist[], int start){
+void djkstra(vector<int> &dist, int start){
 	priority_queue<P> pq;
 	dist[start] = 0;
 	pq.push({start, 0});
@@ -36,6 +36,7 @@ void djkstra(int dist[], int start){
 }
 
 int main(){
+	cin.sync_with_stdio(0); cin.tie(0);
 	cin>>T;
 	while(T--){
 		init();
@@ -49,7 +50,8 @@ int main(){
 		for(int i = 0; i<t; i++){ 
 			int a; cin>>a;
 			lst.push_back(a);
-		}
+		} 
+		sort(lst.begin(), lst.end());
 		djkstra(sdist, s); djkstra(gdist, g); djkstra(hdist, h);
 		for(auto i : lst){
 			if(sdist[i] == sdist[s] + gdist[h] + hdist[i])
