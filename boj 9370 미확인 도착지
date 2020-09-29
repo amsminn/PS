@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct P{ int v, w; }; 
+bool operator <(P a, P b){ return a.w > b.w;}
+
+int T;
+int n,m,t;
+int s, g, h;
+int sdist[2020], gdist[2020], hdist[2020];
+vector<P> v[2020];
+vector<int> lst;
+
+void init(){
+	for(int i = 0; i<2019; i++) v[i].clear();
+	lst.clear();
+	fill(sdist, sdist + 2010, 1e9);
+	fill(gdist, sdist + 2010, 1e9);
+	fill(hdist, sdist + 2010, 1e9);
+}
+
+void djkstra(int dist[], int start){
+	priority_queue<P> pq;
+	dist[start] = 0;
+	pq.push({start, 0});
+	while(pq.size()){
+		P cur = pq.top(); pq.pop();
+		if(cur.w > dist[cur.v]) continue;	
+		for(auto next : v[cur.v]){
+			if(dist[next.v] > dist[cur.v] + next.w){
+				dist[next.v] = dist[cur.v] + next.w;
+				pq.push({next.v, dist[next.v]});
+			}
+		}
+	}
+}
+
+int main(){
+	cin>>T;
+	while(T--){
+		init();
+		cin>>n>>m>>t;
+		cin>>s>>g>>h;
+		for(int i = 0; i<m; i++){
+			int a,b,d; cin>>a>>b>>d;
+			v[a].push_back({b,d});
+			v[b].push_back({a,d});
+		}
+		for(int i = 0; i<t; i++){ 
+			int a; cin>>a;
+			lst.push_back(a);
+		}
+		djkstra(sdist, s); djkstra(gdist, g); djkstra(hdist, h);
+		for(auto i : lst){
+			if(sdist[i] == sdist[s] + gdist[h] + hdist[i])
+				cout<<i<<' ';
+		}
+		cout<<'\n';
+	}
+
+	return 0;
+}
