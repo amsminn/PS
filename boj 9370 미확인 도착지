@@ -20,6 +20,11 @@ void init(){
 	sdist.resize(n+5);
 	gdist.resize(n+5);
 	hdist.resize(n+5);
+	for(int i = 1; i<=n; i++){
+		sdist[i] = 1e9;
+		gdist[i] = 1e9;
+		hdist[i] = 1e9;
+	}
 }
 
 void djkstra(vector<int> &dist, int start){
