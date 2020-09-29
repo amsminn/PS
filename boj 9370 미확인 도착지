@@ -14,6 +14,9 @@ vector<int> lst;
 void init(){
 	for(int i = 0; i<2019; i++) v[i].clear();
 	lst.clear();
+	sdist.clear();
+	gdist.clear();
+	hdist.clear();
 	sdist.resize(n+5);
 	gdist.resize(n+5);
 	hdist.resize(n+5);
@@ -57,7 +60,7 @@ int main(){
 			if(sdist[i] == sdist[s] + gdist[h] + hdist[i])
 				cout<<i<<' ';
 		}
-		cout<<'\n';
+		cout<<"case end \n";
 	}
 
 	return 0;
