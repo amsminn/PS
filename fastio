@@ -22,7 +22,7 @@ void read(int &x){
 }
 
 int main() {
-	
+	auto f=[&]{if(c>=I+SZ-16){char*p=I;do*p++=*c++;while(c!=I+SZ);syscall(0,0,p,I+SZ-p);c=I;}int x=0;do{x=x*10+*c-'0';}while(*++c>='0');++c;return x;};
 
 	return 0;
 }
