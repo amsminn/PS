@@ -1,12 +1,18 @@
 namespace SPT {
     struct node {
-        int key;
+        int key = 0, cnt = 0, sum = 0;
         node *l, *r, *p;
 
         node(int k, node *left, node *right, node *pa) : key(k), l(left), r(right), p(pa) {};
     };
 
     node *root;
+
+    void upd(node *here) { // kth, sum update
+        here->cnt = 1, here->sum = here->key;
+        if (here->l) here->cnt += here->l->cnt, here->sum += here->l->sum;
+        if (here->r) here->cnt += here->r->cnt, here->sum += here->r->sum;
+    }
 
     void rot(node *here) {
         node *p = here->p, *tmp;
@@ -23,6 +29,8 @@ namespace SPT {
             if (here->p->l == p) here->p->l = here;
             else here->p->r = here;
         } else root = here;
+        upd(p);
+        upd(here);
     }
 
     bool splay(node *here) {
@@ -52,7 +60,7 @@ namespace SPT {
     }
 
     bool push(int key, node *pre = 0, node *&here = root) {
-        if (!here) return splay(here = new node(key, 0,0, pre));
+        if (!here) return splay(here = new node(key, 0, 0, pre));
         if (here->key == key) return true;
         if (here->key < key) return push(key, here, here->r);
         else return push(key, here, here->l);
@@ -86,5 +94,50 @@ namespace SPT {
         if (here->l) print(here->l);
         cout << (here->key) << ' ';
         if (here->r) print(here->r);
+    }
+
+    void kth(int k) {
+        node *cur = root;
+        while (1) {
+            while (cur->l and cur->l->cnt > k) cur = cur->l;
+            if(cur->l) k -= cur->l->cnt;
+            if(!k) break;
+            cur = cur->r, k--;
+        }
+        splay(cur);
+    }
+
+    void build(int n){
+        node* x;
+        root = x = new node(0,0,0,0);
+        x->cnt = n;
+        for(int i = 1; i<n; i++){
+            x->r = new node(0,0,0,0);
+            x->r->p = x;
+            x = x->r;
+            x->cnt = n-i;
+        }
+    }
+
+    void add(int k, int v){ //add v to kth element
+        kth(k);
+        root->sum += v;
+        root->key += v;
+    }
+
+    void select(int l, int r){
+        kth(l-1);
+        node *cur = root;
+        root = cur -> r;
+        root->p = 0;
+        kth(r - l + 1);
+        root->p = cur;
+        cur->r = root;
+        root = cur;
+    }
+
+    int sum(int l, int r){
+        select(l, r);
+        return root->r->l->sum;
     }
 }
