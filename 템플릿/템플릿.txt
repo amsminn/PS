@@ -1,0 +1,55 @@
+#define LOCAL
+/****************************************************************************************************************************/
+/*************************************                 My Template Start                *************************************/
+/****************************************************************************************************************************/
+#ifndef LOCAL
+#pragma GCC optimize ("O3")
+#pragma GCC optimize ("unroll-loops")
+#endif
+
+#include <bits/stdc++.h>
+
+#define io cin.tie(0)->sync_with_stdio(0)
+#define endl "\n"
+#define siz(v) (int)v.size()
+#define all(x) x.begin(), x.end()
+
+using namespace std;
+
+template<typename Type>
+inline ostream &operator<<(ostream &out, const vector<Type> &v) {
+    for (auto &i: v) out << i << ' ';
+    return out;
+}
+
+template<typename Type>
+inline istream &operator>>(istream &in, vector<Type> &v) {
+    for (auto &i: v) in >> i;
+    return in;
+}
+
+using ll = long long;
+using ull = unsigned long long;
+using pi = pair<int, int>;
+using pl = pair<ll, ll>;
+using vi = vector<int>;
+using vl = vector<ll>;
+using vpi = vector<pi>;
+using vpl = vector<pl>;
+using vvii = vector<vector<int>>;
+using vvll = vector<vector<ll>>;
+using vvpi = vector<vector<pi>>;
+using vvpl = vector<vector<pl>>;
+
+/****************************************************************************************************************************/
+/*************************************                   My Template End                *************************************/
+/****************************************************************************************************************************/
+
+
+
+int main() {
+    io;
+
+
+    return 0;
+}
