@@ -28,6 +28,13 @@ inline istream &operator>>(istream &in, vector<Type> &v) {
     return in;
 }
 
+template<typename T>
+T power(T a, T b, T mod=numeric_limits<T>::max()){
+    if(b == 0)return 1;
+    if(b % 2)return a * power(a, b-1, mod) % mod;
+    return power(a * a % mod, b >> 1, mod);
+}
+
 using ll = long long;
 using ull = unsigned long long;
 using pi = pair<int, int>;
@@ -36,8 +43,8 @@ using vi = vector<int>;
 using vl = vector<ll>;
 using vpi = vector<pi>;
 using vpl = vector<pl>;
-using vvii = vector<vector<int>>;
-using vvll = vector<vector<ll>>;
+using vvi = vector<vector<int>>;
+using vvl = vector<vector<ll>>;
 using vvpi = vector<vector<pi>>;
 using vvpl = vector<vector<pl>>;
 
@@ -45,11 +52,21 @@ using vvpl = vector<vector<pl>>;
 /*************************************                   My Template End                *************************************/
 /****************************************************************************************************************************/
 
-
+int n;
+ll dp[5050];
+const int mod = 1e9 + 7;
 
 int main() {
     io;
-
+    int t; cin>>t;
+    dp[0] = dp[2] = 1;
+    for(int len = 3; len <=5000; len++)
+        for(int i = 2; i<= len;i++)
+            dp[len] = (dp[len] + dp[i-2]*dp[len-i]) % mod;
+    while(t--){
+        cin>>n;
+        cout<<dp[n]<<endl;
+    }
 
     return 0;
 }
