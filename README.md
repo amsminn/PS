@@ -10,4 +10,4 @@
 
 ## [RMQ Fenwick Tree](./Rmq_FenwickTree.md)
 
-## [Sqrt Time CHT](./SqrtTime_CHT.md))
+## [Sqrt Time CHT](./SqrtTime_CHT.md)
