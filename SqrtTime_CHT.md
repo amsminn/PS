@@ -1,3 +1,15 @@
+# Sqrt Time CHT
+
+# Concept
+- 직선 N개 쿼리 Q개에 대해 $O((N + Q)N^{1/2})$에 CHT를 풀 수 있음
+- 쿼리나 직선의 기울기에 대해 단조성이 필요하지 않음
+- ll cross(const Line &p, const Line &q) : 직선 p, q의 교점의 x좌표를 올림한 값을 반환
+- bool chk(const Line &a, const Line &b, const Line &c) : 직선 c를 삽입할 때 b가 후보에서 삭제되는지를 T/F로 반환
+- void insert(ll a, ll b) : 직선 $y = ax + b$를 삽입
+- ll qry(ll x) : 삽입된 직선 중 x에서 y값의 최대를 반환
+
+## Implement
+```cpp
 struct CHT {
     static const size_t sq = 400;
     static const ll inf = (ll)1e18;
@@ -49,3 +61,4 @@ struct CHT {
         return mx;
     }
 };
+```

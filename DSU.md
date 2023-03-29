@@ -1,3 +1,14 @@
+# DSU
+
+## Concept
+- 1 based index
+- find(int a) : union find tree 상에서 a가 속한 트리의 루트 노드 번호를 반환 $amortized O(log^*n)$
+- merge(a, b) : a와, b가 속한 트리를 합침, $amortized O(log^*sz)$
+- memory space : $O(sz)$
+
+## Implement
+
+```cpp
 struct DSU{
     vector<int>pa,sz;int n;
     DSU(int _n=0):n(_n){
@@ -13,3 +24,4 @@ struct DSU{
         pa[b]=a;
     }
 };
+```

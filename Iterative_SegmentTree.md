@@ -1,3 +1,17 @@
+# Iterative Segment Tree
+
+## Concept
+- 0 based index
+- Contructor 
+    - int _n : 구간의 크기
+    - T _ID : 항등원 
+    - function<T(T&,T&)> _op : 세그먼트 트리에서 사용할 연산
+- void upd(int i, T x) : i번째 원소를 x로 수정, $O(logN)$
+- T qry(int l, int r) : op(a[l], op(a[l + 1], op(... a[r])))을 반환, $O(logN)$
+- 교환 법칙은 성립하지 않아도 됨
+
+## Implement
+```cpp
 template<typename T>
 struct seg{
     // 0 based index
@@ -19,3 +33,4 @@ struct seg{
         return op(retL,retR);
     }
 };
+```

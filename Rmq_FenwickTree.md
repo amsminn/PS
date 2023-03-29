@@ -1,3 +1,17 @@
+# Rmq Fenwick Tree
+
+## Concept
+- Constructor
+    - int _n : 구간의 크기
+    - T _ID : 항등원
+    - function<T(const T&, const T&)> _f : 구간에 사용할 연산
+- void init() : $O(N)$에 펜윅 트리를 초기화
+- void upd(int i, T x) : i번째 원소를 x로 수정, $O(logN)$
+- T qry(int l, int r) : - T qry(int l, int r) : f(a[l], f(a[l + 1], f(... a[r])))을 반환, $O(logN)$
+- 역원이 존재하지 않는 연산에도 사용 가능
+
+## Implement
+```cpp
 template<typename T>
 struct fenwick {
     int n; T ID; vector<T> v, FT1, FT2;
@@ -37,3 +51,4 @@ struct fenwick {
         return f(f(ret1, v[i]), ret2);
     }
 };
+```

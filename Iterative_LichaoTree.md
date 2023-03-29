@@ -1,4 +1,15 @@
-struct Lichao {
+# Iterative Lichao Tree
+
+## Concept
+- upd(Line v) : $y = ax + b$ 꼴의 직선을 후보에 추가, $O(logN)$
+- qry(ll x) : 후보 중 $y = ax + b$가 최대일 때 y를 반환, $O(logN)$
+- template parameter
+    - [QS, QR] : x의 범위
+    - inf : |y|의 최댓값
+
+## Implement
+```cpp
+template<ll Qs = -1e12, ll Qe = 1e12, ll inf = 2e18> struct Lichao {
     struct Line {
         ll a, b;
         ll get(ll x) { return a * x + b; }
@@ -13,7 +24,7 @@ struct Lichao {
     ll mid(ll s, ll e) { return (s + e) / 2 - (s + e < 0 and (s + e) % 2); }
     void upd(Line v) {
         int node = 0;
-        ll s = -1e12, e = 1e12;
+        ll s = Qs, e = Qe;
         while(s <= e) {
             ll m = mid(s, e);
             Line lo = v, hi = tree[node].v;
@@ -46,7 +57,7 @@ struct Lichao {
     ll qry(ll x) {
         int node = 0;
         ll ret = -inf;
-        ll s = -1e12, e = 1e12;
+        ll s = Qs, e = Qe;
         while(s <= e) {
             if(node == -1) break;
             ll m = mid(s, e);
@@ -62,3 +73,4 @@ struct Lichao {
         return ret;
     }
 };
+```
