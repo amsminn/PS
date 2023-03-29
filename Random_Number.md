@@ -15,4 +15,3 @@ template<typename T> struct RANDOM {
 
 RANDOM<int> rnd;
 ```
-
