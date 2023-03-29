@@ -10,7 +10,7 @@ struct FASTIO {
     }
     ~FASTIO() {
         write(1,O,d-O);
-    }
+    } 
     inline T get() {
         T x=0;bool e;p+=e=*p=='-';
         for(char c=*p++;c&16;x=10*x+(c&15),c=*p++);
