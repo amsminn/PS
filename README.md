@@ -11,3 +11,5 @@
 ## [RMQ Fenwick Tree](./Rmq_FenwickTree.md)
 
 ## [Sqrt Time CHT](./SqrtTime_CHT.md)
+
+## [Random Number](./Random_Number.md)
