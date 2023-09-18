@@ -22,16 +22,17 @@ struct FASTIO {
     }
     ~FASTIO() {
         write(1,O,d-O);
-    } 
+    }
     inline T get() {
         T x=0;bool e;p+=e=*p=='-';
+        for(;*p==10 or *p==32;p++);
         for(char c=*p++;c&16;x=10*x+(c&15),c=*p++);
         return e?-x:x;
     }
     inline void put(T x) {
-        if(d-O+100>=2000000) write(1,O,d-O), d = O;
+        if(d-O+100>2000000) write(1,O,d-O), d=O;
         if(x<0) *d++='-', x=-x;
-        char t[20],*q=t;
+        char t[16],*q=t;
         do *q++=x%10|48; while(x/=10);
         do *d++=*--q; while(q!=t);
         *d++=10;
